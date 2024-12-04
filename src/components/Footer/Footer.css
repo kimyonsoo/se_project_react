@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Cabinet Grotesk", sans-serif;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  padding: 0 40px;
+}

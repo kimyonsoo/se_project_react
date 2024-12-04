@@ -2,10 +2,16 @@
   display: flex;
   align-items: center;
   padding: 32px 0 28px;
+  max-width: 1360px;
+  max-height: 40px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
 }
 
 .header__logo {
   margin-right: 24px;
+  height: 40px;
+  width: 89px;
 }
 .header__date-location {
   margin: 0;
@@ -22,4 +28,5 @@
 }
 
 .header__user-name {
+  margin: 0;
 }
