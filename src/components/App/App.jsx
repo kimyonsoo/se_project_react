@@ -56,6 +56,7 @@ function App() {
         title="New garment"
         activeModal={activeModal}
         handleCloseButtonClick={handleCloseButtonClick}
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name{""}
@@ -77,25 +78,34 @@ function App() {
         </label>
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the weather type</legend>
-          <input id="hot" type="radio" className="modal__radio-input" />
-          <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            Hot
-          </label>
-          <input id="warm" type="radio" className="modal__radio-input" />
-          <label
-            htmlFor="warm"
-            className="modal__label modal__label_type_radio"
-          >
-            Warm
-          </label>
-          <input id="cold" type="radio" className="modal__radio-input" />
+          <div className="modal__radio-option">
+            <input id="hot" type="radio" className="modal__radio-input" />
+            <label
+              htmlFor="hot"
+              className="modal__label modal__label_type_radio"
+            >
+              Hot
+            </label>
+          </div>
+          <div className="modal__radio-option">
+            <input id="warm" type="radio" className="modal__radio-input" />
+            <label
+              htmlFor="warm"
+              className="modal__label modal__label_type_radio"
+            >
+              Warm
+            </label>
+          </div>
+          <div className="modal__radio-option">
+            <input id="cold" type="radio" className="modal__radio-input" />
 
-          <label
-            htmlFor="cold"
-            className="modal__label modal__label_type_radio"
-          >
-            Cold
-          </label>
+            <label
+              htmlFor="cold"
+              className="modal__label modal__label_type_radio"
+            >
+              Cold
+            </label>
+          </div>
         </fieldset>
       </ModalWithForm>
       <ItemModal
