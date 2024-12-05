@@ -1,8 +1,8 @@
-# React + Vite
+# Project 4: React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This [project] (https://kimyonsoo.github.io/se_project_react/) is the 4th project of the Software Engineering program at TripleTen. It was created using JSX, HTML and CSS, based on the design brief given on [Figma] (https://www.figma.com/design/F03bTb81Pw8IDPj5Y9rc5i/Sprint-10-%7C-WTWR?node-id=548-113&node-type=frame&t=VRVC89xFY7PWNE1S-0). The application utilizes an API collecting the weather data on daily basis to process what would be suitable for wearing based on the location and climate of a user.
 
-Currently, two official plugins are available:
+## Project features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- JSX
+- API

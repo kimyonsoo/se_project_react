@@ -13,6 +13,7 @@
 }
 
 .cards__text {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   font-size: 20px;
   margin: 40px auto 34px;
   line-height: 24.8px;

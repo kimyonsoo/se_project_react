@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: "CabinetGrotesk-Medium", sans-serif;
   bottom: 24px;
   left: 0;
   right: 0;
-  padding: 0 40px;
+  padding-bottom: 24px;
+  padding-top: 85px;
 }

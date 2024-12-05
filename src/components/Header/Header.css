@@ -4,8 +4,9 @@
   padding: 32px 0 28px;
   max-width: 1360px;
   max-height: 40px;
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   font-size: 20px;
+  line-height: 1.24;
 }
 
 .header__logo {
@@ -15,10 +16,15 @@
 }
 .header__date-location {
   margin: 0;
+  padding-top: 11px;
+  padding-bottom: 5px;
 }
 
 .header__add-clothes-button {
   margin: 0 20px 0 auto;
+  border-style: none;
+  padding: 0;
+  background: transparent;
 }
 
 .header__user-container {

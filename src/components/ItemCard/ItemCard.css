@@ -1,5 +1,6 @@
 .card {
   max-width: 323px;
+  max-height: 326px;
   position: relative;
   border: 1px solid #0000004d;
   border-radius: 16px;
@@ -12,10 +13,18 @@
 
 .card__title {
   position: absolute;
+  font-family: "CabinetGrotesk-Medium", sans-serif;
+  opacity: 60%;
+  font-size: 16px;
+  line-height: 1.25;
   top: 15px;
+  border-radius: 4px;
+  background-color: #fff;
   margin: 0;
+  padding: 2px 12px;
 }
 
 .card__image {
   width: 100%;
+  height: auto;
 }

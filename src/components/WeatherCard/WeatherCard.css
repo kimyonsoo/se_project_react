@@ -6,16 +6,19 @@
 }
 
 .weather-card__temp {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   font-size: 36px;
   line-height: 40px;
   margin: 0;
   position: absolute;
   top: 20px;
   left: 16px;
+  color: #fff;
 }
 
 .weather-card__image {
   object-fit: contain;
   object-position: right top;
   width: 100%;
+  font-family: "CabinetGrotesk-Medium", sans-serif;
 }
