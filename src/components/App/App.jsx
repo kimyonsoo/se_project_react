@@ -48,7 +48,7 @@ function App() {
   }, []);
 
   return (
-    <CurrentTemperatureUnitContext.provider
+    <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
     >
       <div className="page">
@@ -138,7 +138,7 @@ function App() {
           handleCloseButtonClick={handleCloseButtonClick}
         />
       </div>
-    </CurrentTemperatureUnitContext.provider>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 
