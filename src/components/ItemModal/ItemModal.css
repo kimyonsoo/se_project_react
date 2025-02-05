@@ -1,4 +1,4 @@
-.modal__content_type_image {
+.modal__content.modal__content_type_image {
   padding: 0;
   border-radius: 16px;
 }

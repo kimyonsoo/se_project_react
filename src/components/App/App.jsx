@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Main from "../Main/Main";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
-import { getItems } from "../../utils/api";
+import { deleteCard, getItems } from "../../utils/api";
 import { getWeather, processWeatherData } from "../../utils/weatherApi";
 import Footer from "../Footer/Footer";
 
@@ -37,6 +37,19 @@ function App() {
   const handleAddButtonClick = () => {
     setActiveModal("add-garment");
   };
+
+  // const handleDeleteButtonClick = (cardId) => {
+  //   deleteCard(selectedCard._id)
+  //     .then((data) => {
+  //       setClothingItems(
+  //         clothingItems.filter((item) => item._id !== selectedCard._id)
+  //       );
+  //       setSelectedCard({});
+  //       handleCloseButtonClick();
+  //       // setActiveModal("delete");
+  //     })
+  //     .catch(console.error);
+  // };
 
   const handleCloseButtonClick = () => {
     setActiveModal("");
@@ -104,17 +117,24 @@ function App() {
           <Footer />
         </div>
         <AddItemModal
-          handleCloseButtonClick={handleCloseButtonClick}
+          onCloseModal={handleCloseButtonClick}
           activeModal={activeModal}
           isOpen={activeModal === "add-garment"}
           onAddItemModalSubmit={handleAddItemModalSubmit}
           //This will run in response to an event -> use on convention
-        ></AddItemModal>
+        />
 
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
+          onCloseModal={handleCloseButtonClick}
+          onDeleteModal={handleDeleteButtonClick}
+        />
+
+        <deleteItemModal
+          activeModal={activeModal}
           handleCloseButtonClick={handleCloseButtonClick}
+          card={selectedCard}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

@@ -5,7 +5,7 @@ import { useState } from "react";
 const AddItemModal = ({
   isOpen,
   activeModal,
-  handleCloseButtonClick,
+  onCloseModal,
   onAddItemModalSubmit,
 }) => {
   const [name, setName] = useState("");
@@ -40,7 +40,7 @@ const AddItemModal = ({
       title="New garment"
       activeModal={activeModal}
       isOpen={isOpen}
-      handleCloseButtonClick={handleCloseButtonClick}
+      onCloseModal={onCloseModal}
       onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">

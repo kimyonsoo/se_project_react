@@ -1,4 +1,8 @@
 .profile {
   display: flex;
-  gap: 100px;
+  padding-top: 19px;
+  /* gap: 116px; */
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-size: 20px;
+  line-height: 1.24;
 }
