@@ -40,3 +40,21 @@
   line-height: 24px;
   margin: 0 0 32px 0;
 }
+
+.modal__delete-button {
+  position: absolute;
+  width: 101px;
+  height: 24px;
+  font-family: "CabinetGrotesk-Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+  background-color: #fff;
+  padding: 0;
+  border: none;
+  color: red;
+  right: 32px;
+  bottom: 68px;
+  /* right 32, top 20 from pic, 68 from bottom 365 from left */
+}

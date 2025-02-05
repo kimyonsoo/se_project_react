@@ -38,18 +38,18 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  // const handleDeleteButtonClick = (cardId) => {
-  //   deleteCard(selectedCard._id)
-  //     .then((data) => {
-  //       setClothingItems(
-  //         clothingItems.filter((item) => item._id !== selectedCard._id)
-  //       );
-  //       setSelectedCard({});
-  //       handleCloseButtonClick();
-  //       // setActiveModal("delete");
-  //     })
-  //     .catch(console.error);
-  // };
+  const handleDeleteButtonClick = (cardId) => {
+    deleteCard(selectedCard._id)
+      .then((data) => {
+        setClothingItems(
+          clothingItems.filter((item) => item._id !== selectedCard._id)
+        );
+        setSelectedCard({});
+        handleCloseButtonClick();
+        // setActiveModal("delete");
+      })
+      .catch(console.error);
+  };
 
   const handleCloseButtonClick = () => {
     setActiveModal("");
@@ -129,12 +129,6 @@ function App() {
           card={selectedCard}
           onCloseModal={handleCloseButtonClick}
           onDeleteModal={handleDeleteButtonClick}
-        />
-
-        <deleteItemModal
-          activeModal={activeModal}
-          handleCloseButtonClick={handleCloseButtonClick}
-          card={selectedCard}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
