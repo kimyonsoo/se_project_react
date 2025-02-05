@@ -20,10 +20,10 @@ function WeatherCard({ weatherData }) {
     weatherOption = filteredOptions[0];
   }
 
-  console.log("Weather Data:", weatherData);
-  console.log("Filtered Options:", filteredOptions);
-  console.log("Selected Weather Option:", weatherOption);
-  console.log("Image URL:", weatherOption?.url);
+  // console.log("Weather Data:", weatherData);
+  // console.log("Filtered Options:", filteredOptions);
+  // console.log("Selected Weather Option:", weatherOption);
+  // console.log("Image URL:", weatherOption?.url);
 
   return (
     <section className="weather-card">

@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Main from "../Main/Main";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
-import { deleteCard, getItems } from "../../utils/api";
+import { addItem, handleResponse, deleteCard, getItems } from "../../utils/api";
 import { getWeather, processWeatherData } from "../../utils/weatherApi";
 import Footer from "../Footer/Footer";
 
@@ -39,14 +39,16 @@ function App() {
   };
 
   const handleDeleteButtonClick = (cardId) => {
+    console.log(selectedCard._id);
     deleteCard(selectedCard._id)
       .then((data) => {
         setClothingItems(
+          // After API request, update the clothing items
+          // by crateing a copy of the array that filtered the deleted card from it
           clothingItems.filter((item) => item._id !== selectedCard._id)
         );
         setSelectedCard({});
         handleCloseButtonClick();
-        // setActiveModal("delete");
       })
       .catch(console.error);
   };
@@ -56,6 +58,7 @@ function App() {
   };
 
   const handleCardClick = (card) => {
+    console.log(card.imageUrl);
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -82,7 +85,8 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        // setClothingItems(data);
+        console.log("getItems:", data);
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
@@ -110,7 +114,14 @@ function App() {
             />
             <Route
               path="/profile"
-              element={<Profile onCardClick={handleCardClick} />}
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  handleAddButtonClick={handleAddButtonClick}
+                  clothingItems={clothingItems}
+                  onDeleteModal={handleDeleteButtonClick}
+                />
+              }
             />
           </Routes>
 
