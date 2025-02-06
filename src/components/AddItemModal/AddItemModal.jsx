@@ -43,11 +43,6 @@ const AddItemModal = ({
     if (isValid) {
       onAddItemModalSubmit({ name, imageUrl, weather });
     }
-
-    //empty the inputs
-    setName("");
-    setImageUrl("");
-    setWeather("");
   }
 
   return (

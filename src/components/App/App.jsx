@@ -38,6 +38,10 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const onCloseModal = () => {
+    setActiveModal("");
+  };
+
   const handleDeleteButtonClick = () => {
     console.log(selectedCard._id);
     deleteCard(selectedCard._id)
@@ -48,13 +52,9 @@ function App() {
           clothingItems.filter((item) => item._id !== selectedCard._id)
         );
         setSelectedCard({});
-        handleCloseButtonClick();
+        onCloseModal();
       })
       .catch(console.error);
-  };
-
-  const handleCloseButtonClick = () => {
-    setActiveModal("");
   };
 
   const handleCardClick = (card) => {
@@ -69,7 +69,7 @@ function App() {
     addItem({ name, imageUrl, weather })
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
-        handleCloseButtonClick();
+        onCloseModal();
       })
       .catch(console.error);
   };
@@ -129,7 +129,7 @@ function App() {
           <Footer />
         </div>
         <AddItemModal
-          onCloseModal={handleCloseButtonClick}
+          onCloseModal={onCloseModal}
           activeModal={activeModal}
           isOpen={activeModal === "add-garment"}
           onAddItemModalSubmit={handleAddItemModalSubmit}
@@ -139,7 +139,7 @@ function App() {
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
-          onCloseModal={handleCloseButtonClick}
+          onCloseModal={onCloseModal}
           onDeleteModal={handleDeleteButtonClick}
         />
       </div>

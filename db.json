@@ -29,18 +29,6 @@
       "name": "Sweatshirt",
       "weather": "warm",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sweatshirt.png?etag=008a9674757bea2e0bdb31242e364be0"
-    },
-    {
-      "name": "Test",
-      "imageUrl": "https://img.freepik.com/free-psd/cartoon-hat-illustration_23-2151311496.jpg",
-      "weather": "cold",
-      "_id": 16
-    },
-    {
-      "name": "Cardigan",
-      "imageUrl": "https://icons.veryicon.com/png/o/clothes-accessories/clothing-series-icon/knitted-cardigan.png",
-      "weather": "cold",
-      "_id": 17
     }
   ]
 }
