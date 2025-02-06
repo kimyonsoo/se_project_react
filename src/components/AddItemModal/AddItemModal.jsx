@@ -14,6 +14,14 @@ const AddItemModal = ({
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
+    if (!isOpen) {
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    }
+  });
+
+  useEffect(() => {
     // Set isValid to true if all fields are non-empty
     setIsValid(name.trim() !== "" && imageUrl.trim() !== "" && weather !== "");
   }, [name, imageUrl, weather]);
