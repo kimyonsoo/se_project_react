@@ -1,6 +1,6 @@
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AddItemModal = ({
   isOpen,
@@ -11,6 +11,12 @@ const AddItemModal = ({
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    // Set isValid to true if all fields are non-empty
+    setIsValid(name.trim() !== "" && imageUrl.trim() !== "" && weather !== "");
+  }, [name, imageUrl, weather]);
 
   const handleNameSubmit = (e) => {
     setName(e.target.value);
@@ -26,7 +32,9 @@ const AddItemModal = ({
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddItemModalSubmit({ name, imageUrl, weather });
+    if (isValid) {
+      onAddItemModalSubmit({ name, imageUrl, weather });
+    }
 
     //empty the inputs
     setName("");
@@ -42,6 +50,7 @@ const AddItemModal = ({
       isOpen={isOpen}
       onCloseModal={onCloseModal}
       onSubmit={handleSubmit}
+      isValid={isValid}
     >
       <label htmlFor="name" className="modal__label">
         Name{""}

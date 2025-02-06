@@ -38,7 +38,7 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  const handleDeleteButtonClick = (cardId) => {
+  const handleDeleteButtonClick = () => {
     console.log(selectedCard._id);
     deleteCard(selectedCard._id)
       .then((data) => {
@@ -66,11 +66,12 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     //not sure how default clothings can be autodetected as prevItems
     //because we already passed defaultClothingItems to useState(defaultClothingItems)
-    setClothingItems((prevItems) => [
-      { name: name, link: imageUrl, weather: weather },
-      ...prevItems,
-    ]);
-    handleCloseButtonClick();
+    addItem({ name, imageUrl, weather })
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        handleCloseButtonClick();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {

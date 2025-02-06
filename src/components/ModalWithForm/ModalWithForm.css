@@ -113,7 +113,6 @@
   justify-content: center;
   align-items: center;
   background-color: #000000;
-  opacity: 0.3;
   color: #fff;
   border: none;
   width: 124px;
@@ -125,7 +124,12 @@
 }
 
 .modal__submit:hover {
-  opacity: 0.6;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__submit:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal__legend {
