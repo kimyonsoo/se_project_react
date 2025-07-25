@@ -72,7 +72,7 @@ const LoginModal = ({
   return (
     <ModalWithForm
       buttonText="Log in"
-      secondaryButtonText={"or Sign Up"}
+      // secondaryButtonText={"or Sign Up"}
       title="Log in"
       activeModal={activeModal}
       isOpen={isOpen}

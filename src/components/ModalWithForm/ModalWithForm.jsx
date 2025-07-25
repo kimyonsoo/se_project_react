@@ -10,7 +10,6 @@ function ModalWithForm({
   isOpen,
   onSubmit,
   isValid,
-  secondaryButtonText,
 }) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
@@ -24,7 +23,7 @@ function ModalWithForm({
           <button type="submit" className="modal__submit" disabled={!isValid}>
             {buttonText}
           </button>
-          {secondaryButtonText && (
+          {/* {secondaryButtonText && (
             <button
               onClick={onOpenModal}
               type="button"
@@ -33,7 +32,7 @@ function ModalWithForm({
             >
               {secondaryButtonText}
             </button>
-          )}
+          )} */}
         </form>
       </div>
     </div>

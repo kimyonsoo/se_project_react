@@ -50,6 +50,8 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const jwt = localStorage.getItem("jwt");
+
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
@@ -75,7 +77,6 @@ function App() {
   };
 
   const handleDeleteButtonClick = () => {
-    console.log(selectedCard._id);
     deleteCard(selectedCard._id, jwt)
       .then((data) => {
         setClothingItems(
@@ -175,8 +176,6 @@ function App() {
     setIsLoggedIn(false);
     setCurrentUser({});
   };
-
-  const jwt = localStorage.getItem("jwt");
 
   useEffect(() => {
     if (!jwt) {
