@@ -51,19 +51,20 @@ const LoginModal = ({
 
   const handleClose = () => {
     onClose();
-    setData({ email: "", password: "" });
+    setData({ email: "", password: "", errorMessage: "" });
   };
 
   return (
     <ModalWithForm
-      buttonText="Log in"
+      buttonText="Log In"
       secondaryButtonText={"or Sign Up"}
-      title="Log in"
+      title="Log In"
       activeModal={activeModal}
       isOpen={isOpen}
       onCloseModal={onCloseModal}
       onOpenModal={onRegisterModal}
       onSubmit={handleSubmit}
+      errorMessage={data.errorMessage}
       isValid={data.email && data.password}
     >
       <label htmlFor="email" className="modal__label">
@@ -79,7 +80,8 @@ const LoginModal = ({
         />
       </label>
       <label htmlFor="password" className="modal__label">
-        Password{""}
+        {data.errorMessage ? "Incorrect password" : "Password"}
+
         <input
           type="password"
           className="modal__input"

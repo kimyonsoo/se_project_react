@@ -148,10 +148,13 @@ function App() {
   const handleLogin = ({ email, password }) => {
     return auth
       .login({ email, password })
-      .then((userData) => {
-        setIsLoggedIn(true);
-        setCurrentUser(userData);
-        onCloseModal();
+      .then((res) => {
+        return auth.checkToken(res.token).then((userData) => {
+          setIsLoggedIn(true);
+          setCurrentUser(userData);
+          console.log(userData);
+          onCloseModal();
+        });
       })
       .catch((err) => {
         console.log(err);
