@@ -264,6 +264,7 @@ function App() {
             activeModal={activeModal}
             isOpen={activeModal === "register"}
             onCloseModal={onCloseModal}
+            onLoginModal={onLoginModal}
             onRegisterModal={handleRegister}
           />
 

@@ -58,16 +58,16 @@ function Header({
       {isLoggedIn && (
         <Link to="/profile" className="header__link">
           <div className="header__user-container">
-            <p className="header__user-name">{currentUser.name}</p>
-            {currentUser.avatar ? (
+            <p className="header__user-name">{currentUser?.name}</p>
+            {currentUser?.avatar ? (
               <img
-                src={currentUser.avatar}
-                alt={currentUser.name}
+                src={currentUser?.avatar}
+                alt={currentUser?.name}
                 className="header__avatar"
               />
             ) : (
               <div className="header__avatar_placeholder">
-                {currentUser.name[0]}
+                {currentUser?.name[0]}
               </div>
             )}
           </div>

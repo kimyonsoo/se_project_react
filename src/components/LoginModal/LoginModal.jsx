@@ -41,21 +41,6 @@ const LoginModal = ({
     }
   }
 
-  //   function handleSubmit(e) {
-  //     e.preventDefault();
-  //     onLoginModal(data)
-  //       .then((res) => {
-  //         if (res.token) {
-  //           onClose();
-  //         } else {
-  //           setData({ errorMessage: "Invalid email or password" });
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         setData({ errorMessage: `${err} occurs` });
-  //       });
-  //   }
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prevData) => ({
@@ -72,7 +57,7 @@ const LoginModal = ({
   return (
     <ModalWithForm
       buttonText="Log in"
-      // secondaryButtonText={"or Sign Up"}
+      secondaryButtonText={"or Sign Up"}
       title="Log in"
       activeModal={activeModal}
       isOpen={isOpen}

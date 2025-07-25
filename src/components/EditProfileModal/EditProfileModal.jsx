@@ -30,6 +30,7 @@ function EditProfileModal({
       onCloseModal={onCloseModal}
       onSubmit={handleSubmit}
       buttonText={"Save changes"}
+      isValid={name && avatarUrl}
     >
       <label htmlFor="name" className="modal__label">
         Name *{""}
