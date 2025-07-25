@@ -3,7 +3,7 @@
   height: 28px;
   border: 2px solid black;
   position: relative;
-  margin-left: 670px; /**fix the margin later **/
+  margin-left: auto; /**fix the margin later **/
   border-radius: 20px;
   overflow: hidden;
 }

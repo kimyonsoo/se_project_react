@@ -1,17 +1,43 @@
 .sideBar {
   display: flex;
   align-items: center;
+  flex-direction: column;
   width: 229px;
   gap: 0;
+}
+
+.sideBar__profile {
+  display: flex;
 }
 
 .sideBar__avatar {
   margin-right: 16px;
   width: 56px;
   height: 56px;
+  border-radius: 50%;
 }
 
 .sideBar__username {
   width: 157px;
   height: 25px;
+  margin-top: 16px;
+  margin-bottom: 15px;
+}
+
+.sideBar__container button {
+  border-style: none;
+  background-color: transparent;
+  padding: 0px;
+  font-size: 20px;
+  font-style: bold;
+  line-height: 100%;
+  font-weight: 700;
+}
+
+.sideBar__log-out {
+  margin-top: 8px;
+}
+
+.sideBar__edit-profile {
+  margin-top: 24px;
 }

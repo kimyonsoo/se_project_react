@@ -11,8 +11,24 @@
   justify-content: center;
 }
 
-.card__title {
+.card__image {
+  width: 100%;
+  height: auto;
+}
+
+.card__description {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  top: 15px;
+  left: 12px;
+  right: 12px;
+}
+
+.card__description_title {
   font-family: "CabinetGrotesk-Medium", sans-serif;
   opacity: 60%;
   font-size: 16px;
@@ -24,7 +40,26 @@
   padding: 2px 12px;
 }
 
-.card__image {
-  width: 100%;
-  height: auto;
+.card__description_like {
+  bottom: 12px;
+  right: 12px;
+  border: none;
+  width: 18px;
+  height: 15px;
+  padding: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-image: url(../../assets/like-default.svg);
+}
+
+.card__description_like:hover {
+  opacity: 0.5;
+}
+
+.card__description_like_active {
+  background-image: url(../../assets/liked.svg);
 }

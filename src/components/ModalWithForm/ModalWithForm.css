@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
 
-  width: 100%;
+  /* width: 100%; */
 }
 
 .modal__label .modal__label_type_radio {
@@ -110,17 +110,19 @@
 
 .modal__submit {
   display: flex;
+  align-self: flex-start;
   justify-content: center;
   align-items: center;
   background-color: #000000;
   color: #fff;
   border: none;
-  width: 124px;
+  width: auto;
   height: 36px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   line-height: 20px;
+  padding: 8px 16px;
 }
 
 .modal__submit:hover {
@@ -134,4 +136,18 @@
 
 .modal__legend {
   padding-bottom: 12px;
+}
+
+.modal__button-container {
+  display: flex;
+}
+
+.modal__button {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 10px;
 }

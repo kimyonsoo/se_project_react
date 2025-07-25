@@ -6,9 +6,11 @@ function ModalWithForm({
   buttonText,
   title,
   onCloseModal,
+  onOpenModal,
   isOpen,
   onSubmit,
   isValid,
+  secondaryButtonText,
 }) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
@@ -22,6 +24,16 @@ function ModalWithForm({
           <button type="submit" className="modal__submit" disabled={!isValid}>
             {buttonText}
           </button>
+          {secondaryButtonText && (
+            <button
+              onClick={onOpenModal}
+              type="button"
+              className="modal__button"
+              disabled={!isValid}
+            >
+              {secondaryButtonText}
+            </button>
+          )}
         </form>
       </div>
     </div>
@@ -29,3 +41,14 @@ function ModalWithForm({
 }
 
 export default ModalWithForm;
+
+// {secondaryButtonText && (
+//   <button
+//     onClick={onOpenModal}
+//     type="button"
+//     className="modal__button"
+//     disabled={!isValid}
+//   >
+//     {secondaryButtonText}
+//   </button>
+// )}

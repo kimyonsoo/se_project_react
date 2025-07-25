@@ -21,7 +21,7 @@
 }
 
 .header__add-clothes-button {
-  margin: 0 20px 0 auto;
+  margin: 0 20px;
   border-style: none;
   padding: 0;
   background: transparent;
@@ -40,4 +40,33 @@
 .header__link {
   text-decoration: none;
   color: #000;
+}
+
+.header__sign-up {
+  margin: 0 20px;
+  border-style: none;
+  padding: 0;
+  background: transparent;
+}
+
+.header__log-in {
+  margin: 0;
+  border-style: none;
+  padding: 0;
+  background: transparent;
+}
+
+.header__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.header__avatar_placeholder {
+  align-items: center;
+  background-color: white;
+}
+
+.header__toggle-switch {
+  margin-right: 24px;
 }
