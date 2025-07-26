@@ -4,7 +4,7 @@ export const handleResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-export const register = ({ email, password, name, avatarUrl }) => {
+export const register = ({ email, password, name, avatar }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
@@ -14,7 +14,7 @@ export const register = ({ email, password, name, avatarUrl }) => {
       email: email,
       password: password,
       name: name,
-      avatar: avatarUrl,
+      avatar: avatar,
     }),
   }).then(handleResponse);
 };

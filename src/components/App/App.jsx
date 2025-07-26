@@ -44,7 +44,7 @@ function App() {
     isDay: false,
   });
 
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -140,11 +140,11 @@ function App() {
           .catch((err) => console.log(err));
   };
 
-  const handleRegister = ({ name, email, password, avatarUrl }) => {
+  const handleRegister = ({ name, email, password, avatar }) => {
     return auth
-      .register({ name, email, password, avatarUrl })
+      .register({ name, email, password, avatar })
       .then((res) => {
-        onCloseModal();
+        handleLogin({ email, password });
       })
       .catch((err) => {
         console.log(err);
@@ -158,7 +158,6 @@ function App() {
         return auth.checkToken(res.token).then((userData) => {
           setIsLoggedIn(true);
           setCurrentUser(userData);
-          console.log(userData);
           onCloseModal();
         });
       })
@@ -220,7 +219,7 @@ function App() {
         console.log(clothingItems);
       })
       .catch(console.error);
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>

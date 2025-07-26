@@ -1,6 +1,6 @@
 import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const RegisterModal = ({
   isOpen,
@@ -16,28 +16,44 @@ const RegisterModal = ({
   const [errorMessage, setErrorMessage] = useState("");
 
   function handleSubmit(e) {
+    console.log("Registration data:", { name, email, password, avatarUrl });
     e.preventDefault();
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setErrorMessage("this is not an email address");
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(email)) {
+    //   setErrorMessage("this is not an email address");
 
-      return;
-    }
+    //   return;
+    // }
 
-    if (password.length < 8) {
-      setErrorMessage("your password must be at least 8 characters long");
-      return;
-    }
+    // if (password.length < 8) {
+    //   setErrorMessage("your password must be at least 8 characters long");
+    //   return;
+    // }
 
-    onRegisterModal({ email, password, name, avatarUrl })
+    onRegisterModal({
+      email,
+      password,
+      name,
+      avatar: avatarUrl,
+    })
       .then(() => {
-        return onLoginModal({ email, password });
+        console.log("Sign up completed");
       })
       .catch((err) => {
         setErrorMessage("Registration failed. Please try again");
+        console.log(err);
       });
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      setEmail("");
+      setPassword("");
+      setName("");
+      setAvatarUrl("");
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm

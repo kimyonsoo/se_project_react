@@ -15,6 +15,18 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.sideBar__avatar_placeholder {
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .sideBar__username {

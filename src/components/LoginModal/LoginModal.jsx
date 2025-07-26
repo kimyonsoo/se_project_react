@@ -1,6 +1,6 @@
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { login } from "../../utils/auth";
 
 const LoginModal = ({
@@ -49,10 +49,15 @@ const LoginModal = ({
     }));
   };
 
-  const handleClose = () => {
-    onClose();
-    setData({ email: "", password: "", errorMessage: "" });
-  };
+  useEffect(() => {
+    if (isOpen) {
+      setData({
+        email: "",
+        password: "",
+        errorMessage: "",
+      });
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm

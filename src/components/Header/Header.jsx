@@ -3,7 +3,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Header({
@@ -18,6 +18,7 @@ function Header({
     day: "numeric",
   });
   const { currentUser } = useContext(CurrentUserContext);
+  const [imgError, setImgError] = useState(false);
 
   return (
     <header className="header">
@@ -59,15 +60,16 @@ function Header({
         <Link to="/profile" className="header__link">
           <div className="header__user-container">
             <p className="header__user-name">{currentUser?.name}</p>
-            {currentUser?.avatar ? (
+            {currentUser?.avatar && !imgError ? (
               <img
                 src={currentUser?.avatar}
                 alt={currentUser?.name}
                 className="header__avatar"
+                onError={() => setImgError(true)}
               />
             ) : (
-              <div className="header__avatar_placeholder">
-                {currentUser?.name[0]}
+              <div className="header__avatar header__avatar_placeholder">
+                {currentUser?.name[0].toUpperCase()}
               </div>
             )}
           </div>
