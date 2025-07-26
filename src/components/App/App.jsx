@@ -116,9 +116,12 @@ function App() {
 
         // the first argument is the card's id
         addCardLike(id, token)
-          .then((updatedCard) => {
+          .then((res) => {
+            const updatedCard = res.data;
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) =>
+                item._id === updatedCard._id ? updatedCard : item
+              )
             );
           })
           .catch((err) => console.log(err))
@@ -126,9 +129,12 @@ function App() {
 
         // the first argument is the card's id
         removeCardLike(id, token)
-          .then((updatedCard) => {
+          .then((res) => {
+            const updatedCard = res.data;
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) =>
+                item._id === updatedCard._id ? updatedCard : item
+              )
             );
           })
           .catch((err) => console.log(err));
