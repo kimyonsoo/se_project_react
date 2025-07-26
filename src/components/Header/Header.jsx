@@ -57,18 +57,18 @@ function Header({
       )}
 
       {isLoggedIn && (
-        <Link to="/profile" className="header__link">
-          <div className="header__user-container">
-            <p className="header__user-name">{currentUser?.name}</p>
+        <Link to="/profile" className="header__profile-link">
+          <div className="header__profile-container">
+            <p className="header__profile-name">{currentUser?.name}</p>
             {currentUser?.avatar && !imgError ? (
               <img
                 src={currentUser?.avatar}
                 alt={currentUser?.name}
-                className="header__avatar"
+                className="header__profile-avatar"
                 onError={() => setImgError(true)}
               />
             ) : (
-              <div className="header__avatar header__avatar_placeholder">
+              <div className="header__profile-avatar header__profile-avatar_placeholder">
                 {currentUser?.name[0].toUpperCase()}
               </div>
             )}

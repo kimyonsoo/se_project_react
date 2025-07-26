@@ -101,7 +101,7 @@ function App() {
     //because we already passed defaultClothingItems to useState(defaultClothingItems)
     addItem({ name, imageUrl, weather }, jwt)
       .then((item) => {
-        setClothingItems([item, ...clothingItems]);
+        setClothingItems([item, ...defaultClothingItems]);
         onCloseModal();
       })
       .catch(console.error);
@@ -214,9 +214,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log("API items:", data); // Add this line
         setClothingItems(data);
-        console.log(clothingItems);
       })
       .catch(console.error);
   }, [isLoggedIn]);

@@ -27,17 +27,17 @@
   background: transparent;
 }
 
-.header__user-container {
+.header__profile-container {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.header__user-name {
+.header__profile-name {
   margin: 0;
 }
 
-.header__link {
+.header__profile-link {
   text-decoration: none;
   color: #000;
 }
@@ -56,7 +56,7 @@
   background: transparent;
 }
 
-.header__avatar {
+.header__profile-avatar {
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -66,7 +66,7 @@
   object-fit: cover;
 }
 
-.header__avatar_placeholder {
+.header__profile-avatar_placeholder {
   align-items: center;
   background-color: #000;
   color: #fff;
