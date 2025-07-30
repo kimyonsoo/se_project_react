@@ -1,5 +1,7 @@
 import "./ModalWithForm.css";
 import closeButton from "../../assets/close-button.svg";
+// import { Modal } from "../Modal/Modal";
+// import { useModalClose } from "../../hooks/useModalClose";
 
 function ModalWithForm({
   children,

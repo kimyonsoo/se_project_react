@@ -1,4 +1,3 @@
-import closeButton from "../../assets/close-button-white.svg";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext, useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -22,6 +21,13 @@ function EditProfileModal({
     console.log({ name: name, avatar: avatarUrl });
   };
 
+  useEffect(() => {
+    if (currentUser && isOpen) {
+      setName(currentUser?.name);
+      setAvatarUrl(currentUser?.avatar);
+    }
+  }, [currentUser, isOpen]);
+
   return (
     <ModalWithForm
       title="Change profile data"
@@ -37,7 +43,7 @@ function EditProfileModal({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="userName"
           name="name"
           placeholder={currentUser?.name || ""}
           onChange={(e) => setName(e.target.value)}
@@ -52,7 +58,7 @@ function EditProfileModal({
         <input
           type="url"
           className="modal__input"
-          id="avatarUrl"
+          id="userAvatarUrl"
           name="avatarUrl"
           placeholder={currentUser?.avatar || ""}
           onChange={(e) => setAvatarUrl(e.target.value)}

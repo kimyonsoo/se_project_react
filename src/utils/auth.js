@@ -1,8 +1,5 @@
 import { baseUrl } from "./constants";
-
-export const handleResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-};
+import { handleResponse } from "./api";
 
 export const register = ({ email, password, name, avatar }) => {
   return fetch(`${baseUrl}/signup`, {
@@ -51,10 +48,5 @@ export const checkToken = (token) => {
       }
       return res;
     })
-    .then(handleResponse)
-    .catch((err) => {
-      console.error(err);
-
-      return "Bad request";
-    });
+    .then(handleResponse);
 };

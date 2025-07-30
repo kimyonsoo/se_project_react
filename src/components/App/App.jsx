@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "../Header/Header";
 import { coordinates, APIkey } from "../../utils/constants";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 import Main from "../Main/Main";
 import { useContext, useEffect, useState } from "react";
@@ -14,7 +14,6 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 import {
   addItem,
-  handleResponse,
   deleteCard,
   getItems,
   addCardLike,
@@ -49,6 +48,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const jwt = localStorage.getItem("jwt");
 
@@ -76,6 +76,24 @@ function App() {
     setActiveModal("");
   };
 
+  useEffect(() => {
+    if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
+
+    const handleEscClose = (e) => {
+      // define the function inside useEffect not to lose the reference on rerendering
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      // don't forget to add a clean up function for removing the listener
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]); // watch activeModal here
+
   const handleDeleteButtonClick = () => {
     deleteCard(selectedCard._id, jwt)
       .then((data) => {
@@ -91,9 +109,13 @@ function App() {
   };
 
   const handleCardClick = (card) => {
-    console.log(card.imageUrl);
-    setActiveModal("preview");
     setSelectedCard(card);
+    setActiveModal("preview");
+  };
+
+  const handleCardClose = (card) => {
+    onCloseModal();
+    setSelectedCard({});
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
@@ -101,7 +123,7 @@ function App() {
     //because we already passed defaultClothingItems to useState(defaultClothingItems)
     addItem({ name, imageUrl, weather }, jwt)
       .then((item) => {
-        setClothingItems([item, ...defaultClothingItems]);
+        setClothingItems((prevItems) => [item, ...prevItems]);
         onCloseModal();
       })
       .catch(console.error);
@@ -182,7 +204,8 @@ function App() {
   const handleLogOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    setCurrentUser({});
+    setCurrentUser(null);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -216,7 +239,7 @@ function App() {
       .then((data) => {
         setClothingItems(data);
       })
-      .catch(console.error);
+      .catch((err) => console.log(err));
   }, [isLoggedIn]);
 
   return (
@@ -293,7 +316,7 @@ function App() {
           <ItemModal
             activeModal={activeModal}
             card={selectedCard}
-            onCloseModal={onCloseModal}
+            onCloseModal={handleCardClose}
             onDeleteModal={handleDeleteButtonClick}
           />
 

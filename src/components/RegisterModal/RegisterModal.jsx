@@ -96,7 +96,7 @@ const RegisterModal = ({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="signupName"
           name="name"
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
