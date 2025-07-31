@@ -38,7 +38,7 @@ function EditProfileModal({
       buttonText={"Save changes"}
       isValid={name && avatarUrl}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="userName" className="modal__label">
         Name *{""}
         <input
           type="text"
@@ -53,7 +53,7 @@ function EditProfileModal({
           value={name}
         />
       </label>
-      <label htmlFor="avatarUrl" className="modal__label">
+      <label htmlFor="userAvatarUrl" className="modal__label">
         Avatar *{""}
         <input
           type="url"
