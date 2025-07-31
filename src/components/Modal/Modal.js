@@ -25,12 +25,9 @@
 //   // then we add the main wrapper with class `modal`
 //   return (
 //     <div className={`modal modal_type_${name}`} onClick={handleOverlay}>
-//       {/* the container for the contents */}
 //       <div className="modal__container">
-//         {/* here will be anything you add as `children`*/}
-//         {children}
-//         {/* add the close button */}
 //         <button className="modal__close" type="button" onClick={onClose} />
+//         {children}
 //       </div>
 //     </div>
 //   );

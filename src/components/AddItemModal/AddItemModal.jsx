@@ -18,11 +18,6 @@ const AddItemModal = ({
     }
   }, [isOpen, resetForm]);
 
-  // useEffect(() => {
-  //   // Set isValid to true if all fields are non-empty
-  //   setIsValid(name.trim() !== "" && imageUrl.trim() !== "" && weather !== "");
-  // }, [name, imageUrl, weather]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
@@ -79,7 +74,9 @@ const AddItemModal = ({
             onChange={handleChange}
             checked={values.weather === "hot"}
           />
-          <label className="modal__label modal__label_type_radio">Hot</label>
+          <label htmlFor="hot" className="modal__label modal__label_type_radio">
+            Hot
+          </label>
         </div>
         <div className="modal__radio-option">
           <input
@@ -91,7 +88,12 @@ const AddItemModal = ({
             onChange={handleChange}
             checked={values.weather === "warm"}
           />
-          <label className="modal__label modal__label_type_radio">Warm</label>
+          <label
+            htmlFor="warm"
+            className="modal__label modal__label_type_radio"
+          >
+            Warm
+          </label>
         </div>
         <div className="modal__radio-option">
           <input
@@ -103,8 +105,14 @@ const AddItemModal = ({
             onChange={handleChange}
             checked={values.weather === "cold"}
           />
-
-          <label className="modal__label modal__label_type_radio">Cold</label>
+          <label
+            htmlFor="cold"
+            className="modal__label modal__label_type_radio"
+          >
+            Cold
+          </label>
+          {/* {
+          I initially tried wrapping the input inside the label as suggested, but it broke the visual styling and bold text feedback for checked radio buttons. I decided to revert to using htmlFor + id, which still keeps the label and input correctly associated while preserving the UI behavior.} */}
         </div>
       </fieldset>
     </ModalWithForm>
